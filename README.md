@@ -1,4 +1,4 @@
-# 🛒 Catálogo de Productos – Proyecto Integrador ABP  
+# Catálogo de Productos – Proyecto Integrador ABP  
 **Carrera de Ciencias de Datos e Inteligencia Artificial**
 
 Este proyecto es una aplicación web desarrollada como parte del Proyecto Integrador del ABP. Permite explorar y analizar un catálogo de productos a través de una interfaz interactiva y responsiva.
