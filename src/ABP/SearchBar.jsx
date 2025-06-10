@@ -15,7 +15,8 @@ const SearchBar = ({
       {/* Input de búsqueda */}
       <input
         type="text"
-        className="w-full p-2 border border-gray-300 rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+        className="w-full p-2 border border-gray-300 rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400
+                   bg-white text-black dark:bg-gray-700 dark:text-white dark:border-gray-600"
         placeholder="Buscar Productos:"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
@@ -25,7 +26,8 @@ const SearchBar = ({
       <select
         value={categoriaSeleccionada}
         onChange={(e) => setCategoriaSeleccionada(e.target.value)}
-        className="w-full p-2 border border-gray-300 rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+        className="w-full p-2 border border-gray-300 rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400
+                   bg-white text-black dark:bg-gray-700 dark:text-white dark:border-gray-600"
       >
         {categorias.map((cat) => (
           <option key={cat} value={cat}>
@@ -38,7 +40,8 @@ const SearchBar = ({
       <select
         value={ordenSeleccionado}
         onChange={(e) => setOrdenSeleccionado(e.target.value)}
-        className="w-full p-2 border border-gray-300 rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+        className="w-full p-2 border border-gray-300 rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400
+                   bg-white text-black dark:bg-gray-700 dark:text-white dark:border-gray-600"
       >
         <option value="">Ordenar:</option>
         <option value="precioAsc">Precio: Menor a Mayor</option>
@@ -51,3 +54,4 @@ const SearchBar = ({
 };
 
 export default SearchBar;
+
