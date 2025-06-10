@@ -4,9 +4,19 @@ const StatsPanel = ({ products, categoryTranslations }) => {
   if (products.length === 0)
     return <p className="mb-4 text-gray-600">No hay productos para analizar.</p>;
 
-  const precios = products.map(p => p.price);
-  const ratings = products.map(p => p.rating);
-  const categorias = [...new Set(products.map(p => p.category))];
+  // Eliminar productos duplicados por título
+  const productosUnicos = Object.values(
+    products.reduce((acc, prod) => {
+      if (!acc[prod.title]) {
+        acc[prod.title] = prod;
+      }
+      return acc;
+    }, {})
+  );
+
+  const precios = productosUnicos.map(p => p.price);
+  const ratings = productosUnicos.map(p => p.rating);
+  const categorias = [...new Set(productosUnicos.map(p => p.category))];
 
   const precioPromedio = precios.length > 0
     ? (precios.reduce((sum, p) => sum + p, 0) / precios.length).toFixed(2)
@@ -15,8 +25,8 @@ const StatsPanel = ({ products, categoryTranslations }) => {
   const precioMax = precios.length > 0 ? Math.max(...precios).toFixed(2) : '0.00';
   const precioMin = precios.length > 0 ? Math.min(...precios).toFixed(2) : '0.00';
 
-  const stockMayor50 = products.filter(p => p.stock >= 50).length;
-  const ratingMayor45 = products.filter(p => p.rating >= 4.5).length;
+  const stockMayor50 = productosUnicos.filter(p => p.stock >= 50).length;
+  const ratingMayor45 = productosUnicos.filter(p => p.rating >= 4.5).length;
 
   const ratingPromedioGeneral = ratings.length > 0
     ? (ratings.reduce((sum, r) => sum + r, 0) / ratings.length).toFixed(2)
@@ -28,7 +38,7 @@ const StatsPanel = ({ products, categoryTranslations }) => {
   const porCategoria = {};
 
   categorias.forEach(cat => {
-    const productosCat = products.filter(p => p.category === cat);
+    const productosCat = productosUnicos.filter(p => p.category === cat);
     const totalCat = productosCat.length;
 
     productosPorCategoria[cat] = totalCat;
