@@ -45,9 +45,9 @@ Este proyecto es una aplicación web desarrollada como parte del Proyecto Integr
 
 ![image](https://github.com/user-attachments/assets/17d42110-b2f4-4fda-bbb8-dbe361bdea6f)
 
-## Instrucciones para ejecutar el proyecto
+# Instrucciones para ejecutar el proyecto
 
-## 🚀 Cómo ejecutar este proyecto
+## Cómo ejecutar este proyecto
 
 Seguí estos pasos para ejecutar la aplicación de forma local:
 
